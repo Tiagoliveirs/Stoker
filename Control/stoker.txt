@@ -1,0 +1,2 @@
+CREATE TABLE `stoker`.`usuario` (`idUsuario` INT NOT NULL AUTO_INCREMENT , `username` VARCHAR(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL , `senha` VARCHAR(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL , PRIMARY KEY (`idUsuario`)) ENGINE = InnoDB CHARSET=utf8 COLLATE utf8_general_ci;
+INSERT INTO `usuario` (`idUsuario`, `username`, `senha`) VALUES ('1', 'suporte', '@suporte'), ('2', 'admin', 'admin')

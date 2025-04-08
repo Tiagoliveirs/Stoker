@@ -7,3 +7,5 @@ class Users:
 
     def login(self):
         base = Database()
+        base.busca('usuario')
+        return base
