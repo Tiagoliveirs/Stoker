@@ -1,6 +1,6 @@
 from Control.database import Database
 
-class Usuario:
+class Users:
     def __init__(self, username, password):
         self.username = username
         self.password = password
