@@ -8,7 +8,7 @@ class Database:
             self.connect = mysql.connector.connect(
                 host='localhost',
                 user='root',
-                password='Tios_1012',
+                password='',
                 database='stoker'
             )
         except Error as e:
