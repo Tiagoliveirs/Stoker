@@ -1,24 +1,29 @@
 import mysql.connector
 from mysql.connector import Error
-import _mysql_connector
+from datetime import datetime
+
+from mysql.connector.fabric import connect
+
 
 class Database:
     def __init__(self):
         try:
-            self.connect = mysql.connector.connect(
+            self.con = mysql.connector.connect(
                 host='localhost',
+                database='stoker',
                 user='root',
-                password='',
-                database='stoker'
+                password=''
             )
+            if self.con.is_connected():
+                print("Conexão com o banco de dados bem-sucedida")
         except Error as e:
             print(f"Erro ao conectar ao MySQL: {e}")
-            self.connect = None
+            self.con = None
 
     def busca(self, tabela, params=None):
         try:
             sql = f"SELECT * FROM {tabela}"
-            cursor = self.connect.cursor()
+            cursor = self.con.cursor()
             if params:
                 if isinstance(params, dict):
                     params = tuple(params.values())
