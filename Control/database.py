@@ -2,9 +2,6 @@ import mysql.connector
 from mysql.connector import Error
 from datetime import datetime
 
-from mysql.connector.fabric import connect
-
-
 class Database:
     def __init__(self):
         try:
@@ -38,6 +35,6 @@ class Database:
             return None
 
     def close(self):
-        if self.connect and self.connect.is_connected():
-            self.connect.close()
+        if self.con and self.con.is_connected():
+            self.con.close()
             print("Conexão com banco de dados fechada")
