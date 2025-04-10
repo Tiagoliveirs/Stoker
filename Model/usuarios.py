@@ -7,5 +7,10 @@ class Users:
 
     def login(self):
         base = Database()
-        base.busca('usuario')
+        result = base.busca('usuario')
+        if result and result[1][1] == self.username:
+            print(result[1][1])
+        else:
+            print('Usuário não encontrado')
+
         return base

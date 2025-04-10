@@ -17,3 +17,6 @@ if __name__ == '__main__':
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
     u = Users("Tiagos", "12345678")
     u.login()
+
+    u1 = Users("admin", "admin")
+    u1.login()
