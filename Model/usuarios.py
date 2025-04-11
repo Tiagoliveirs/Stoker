@@ -7,7 +7,9 @@ class Users:
 
     def login(self):
         base = Database()
-        result = base.busca('usuario')
+        params = {'where':f'username={self.username}'}
+        result = base.busca('usuario', params)
+
         if result and result[1][1] == self.username:
             print(result[1][1])
         else:

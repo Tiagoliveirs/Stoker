@@ -24,11 +24,13 @@ class Database:
             if params:
                 if isinstance(params, dict):
                     params = tuple(params.values())
+                    print(params)
                 cursor.execute(sql, params)
             else:
                 cursor.execute(sql)
             results = cursor.fetchall()
             cursor.close()
+            print(sql)
             return results
         except Error as e:
             print(f"Erro ao executar a consulta: {e}")
