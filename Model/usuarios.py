@@ -1,4 +1,5 @@
 from Control.database import Database
+from datetime import datetime
 
 class Users:
     def __init__(self, username, password):
@@ -6,13 +7,10 @@ class Users:
         self.password = password
 
     def login(self):
-        base = Database()
-        params = {'where':f'username={self.username}'}
-        result = base.busca('usuario', params)
-
-        if result and result[1][1] == self.username:
-            print(result[1][1])
+        con = Database()
+        busca = f"SELECT * FROM usuario WHERE username = '{self.username}';"
+        result = con.query(busca)
+        if result and result['senha'] == self.password:
+            print(f"Bem-vindo {result['username']}")
         else:
             print('Usuário não encontrado')
-
-        return base

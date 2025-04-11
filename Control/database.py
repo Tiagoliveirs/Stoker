@@ -1,6 +1,5 @@
 import mysql.connector
 from mysql.connector import Error
-from datetime import datetime
 
 class Database:
     def __init__(self):
@@ -17,23 +16,26 @@ class Database:
             print(f"Erro ao conectar ao MySQL: {e}")
             self.con = None
 
-    def busca(self, tabela, params=None):
+    def query(self, busca):
         try:
-            sql = f"SELECT * FROM {tabela}"
-            cursor = self.con.cursor()
-            if params:
-                if isinstance(params, dict):
-                    params = tuple(params.values())
-                    print(params)
-                cursor.execute(sql, params)
-            else:
-                cursor.execute(sql)
-            results = cursor.fetchall()
+            cursor = self.con.cursor(dictionary=True)
+            cursor.execute(busca)
+            results = cursor.fetchone()
             cursor.close()
-            print(sql)
             return results
         except Error as e:
             print(f"Erro ao executar a consulta: {e}")
+            return None
+
+    def fetch_all(self, query):
+        try:
+            cursor = self.con.cursor(dictionary=True)
+            cursor.execute(query)
+            result = cursor.fetchall()
+            cursor.close()
+            return result
+        except Error as e:
+            print(f"Erro ao buscar dados: {e}")
             return None
 
     def close(self):
