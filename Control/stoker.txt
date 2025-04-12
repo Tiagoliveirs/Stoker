@@ -1,2 +1,9 @@
 CREATE TABLE `stoker`.`usuario` (`idUsuario` INT NOT NULL AUTO_INCREMENT , `username` VARCHAR(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL , `senha` VARCHAR(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL , PRIMARY KEY (`idUsuario`)) ENGINE = InnoDB CHARSET=utf8 COLLATE utf8_general_ci;
+
 INSERT INTO `usuario` (`idUsuario`, `username`, `senha`) VALUES ('1', 'suporte', '@suporte'), ('2', 'admin', 'admin')
+
+CREATE TABLE `stoker`.`medicamento` (`idMed` INT NOT NULL AUTO_INCREMENT , `nome` VARCHAR(20) NOT NULL , `princAtv` VARCHAR(25) NOT NULL , `descricao` VARCHAR(30) NOT NULL , `lote` INT NOT NULL , `qtd` DECIMAL(3,2) NOT NULL , `tipo` INT NOT NULL , PRIMARY KEY (`idMed`)) ENGINE = InnoDB CHARSET=utf8 COLLATE utf8_general_ci;
+
+CREATE TABLE `stoker`.`tipomed` (`idTipoMed` INT NOT NULL AUTO_INCREMENT , `descricao` VARCHAR(15) NOT NULL , PRIMARY KEY (`idTipoMed`)) ENGINE = InnoDB CHARSET=utf8 COLLATE utf8_general_ci;
+
+INSERT INTO `tipomed` (`idTipoMed`, `descricao`) VALUES (NULL, 'Fitoterápico'), (NULL, 'Alopático'), (NULL, 'Homeopático'), (NULL, 'Similar'), (NULL, 'Genérico'), (NULL, 'Referência')
