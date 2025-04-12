@@ -1,22 +1,30 @@
 import sys
 
-from PyQt6.QtGui import QIcon
 from PyQt6.QtWidgets import QLabel, QLineEdit, QCheckBox, QPushButton, QApplication
-from PyQt6.uic.Compiler.qtproxies import QtCore, QtGui
 from PySide6 import QtWidgets, QtCore, QtGui
 
 class JanelaPrincipal(QtWidgets.QWidget):
     def __init__(self):
         super().__init__()
+
         self.setWindowTitle('StoKer')
-        #self.setWindowIcon(QIcon('icone.png'))
-        self.setGeometry(150, 150, 500, 500)
 
-        self.Interface()
+        lblnome = QLabel('Usuário', self)
+        font = lblnome.font()
+        font.setPointSize(30)
+        lblnome.setFont(font)
+        """lblnome.setAlignment(
+            Qt.AlignmentFlag.AlignHCenter | Qt.AlignmentFlag.AlignVCenter
+        )"""
+        
+        self.setCentralWidget(lblnome)
 
-        self.show()
+    def setCentralWidget(self, lblnome):
+        pass
 
-    def Interface(self):
+
+""" 
+   def Interface(self):
         lblnome = QLabel('Usuário', self)
         lblnome.move(170, 170)
 
@@ -58,3 +66,4 @@ class JanelaPrincipal(QtWidgets.QWidget):
 qt = QApplication(sys.argv)
 app = JanelaPrincipal()
 sys.exit(qt.exec())
+"""
