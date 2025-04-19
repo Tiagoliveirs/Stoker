@@ -3,17 +3,10 @@ class Funcionario:
         self.nome = nome
         self.cpf = cpf
         self.cargo = cargo
-        self.salario = salario
         self.contatos = contatos if contatos else {}
 
     def atualizar_cargo(self, novo_cargo):
         self.cargo = novo_cargo
-
-    def atualizar_salario(self, novo_salario):
-        if novo_salario > 0:
-            self.salario = novo_salario
-        else:
-            print("Salário inválido. Deve ser maior que zero.")
 
     def atualizar_contato(self, email=None, telefone=None):
         if email:
@@ -30,7 +23,6 @@ class Funcionario:
             f'Funcionário: {self.nome}\n'
             f'CPF: {self.cpf} {"(válido)" if self.validar_cpf() else "(inválido)"}\n'
             f'Cargo: {self.cargo}\n'
-            f'Salário: R$ {self.salario:.2f}\n'
             f'Contatos:\n{contatos_formatados if contatos_formatados else "Nenhum contato cadastrado"}'
         )
 
@@ -42,5 +34,4 @@ if __name__ == "__main__":
 
     print("\nApós promoção e aumento:")
     funcionario1.atualizar_cargo("Gerente")
-    funcionario1.atualizar_salario(5200.00)
     print(funcionario1)
