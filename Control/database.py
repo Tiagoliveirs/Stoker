@@ -2,13 +2,13 @@ import mysql.connector
 from mysql.connector import Error
 
 class Database:
-    def __init__(self):
+    def __init__(self, host, dbname, username, passe):
         try:
             self.con = mysql.connector.connect(
-                host='localhost',
-                database='stoker',
-                user='root',
-                password=''
+                host=host,
+                database=dbname,
+                user=username,
+                password=passe
             )
             if self.con.is_connected():
                 print("Conexão com o banco de dados bem-sucedida")
